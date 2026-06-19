@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop Premium Glassware - Handcrafted glass collections">
+    <title>Shop | LUXE Premium Glassware</title>
+    <link rel="stylesheet" href="royal-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="royal-index.html" class="logo-text">LUXE</a>
+                <span class="logo-subtext">Premium Glassware</span>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="royal-index.html" class="nav-link">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a href="royal-shop.html" class="nav-link active">Collections</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('drinkware')">Drinkware</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('serveware')">Serveware</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('storage')">Storage</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('dining')">Dining</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <button class="icon-btn" id="searchBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn" id="wishlistBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="icon-count">0</span>
+                </button>
+                <button class="icon-btn" id="cartBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="icon-count">0</span>
+                </button>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header" style="padding: 60px 20px; background: linear-gradient(135deg, #F5F3F0 0%, #E8E0E8 100%); text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Our Collections</h1>
+            <p style="font-size: 1.125rem; color: #666;">Discover our curated selection of premium glassware</p>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section class="shop-section" style="padding: 60px 20px;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 250px 1fr; gap: 40px;">
+                <!-- Sidebar Filters -->
+                <aside class="shop-sidebar">
+                    <h3 style="color: #2D1B4E; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">Filters</h3>
+
+                    <!-- Categories -->
+                    <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid #E8E8E8;">
+                        <h4 style="color: #2D1B4E; margin-bottom: 15px;">Category</h4>
+                        <label style="display: block; margin-bottom: 10px; cursor: pointer;">
+                            <input type="radio" name="category" value="all" checked onchange="applyFilters()"> All Products
+                        </label>
+                        <label style="display: block; margin-bottom: 10px; cursor: pointer;">
+                            <input type="radio" name="category" value="drinkware" onchange="applyFilters()"> Drinkware
+                        </label>
+                        <label style="display: block; margin-bottom: 10px; cursor: pointer;">
+                            <input type="radio" name="category" value="serveware" onchange="applyFilters()"> Serveware
+                        </label>
+                        <label style="display: block; margin-bottom: 10px; cursor: pointer;">
+                            <input type="radio" name="category" value="storage" onchange="applyFilters()"> Storage
+                        </label>
+                        <label style="display: block; margin-bottom: 10px; cursor: pointer;">
+                            <input type="radio" name="category" value="dining" onchange="applyFilters()"> Dining
+                        </label>
+                    </div>
+
+                    <!-- Price Range -->
+                    <div style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid #E8E8E8;">
+                        <h4 style="color: #2D1B4E; margin-bottom: 15px;">Price Range</h4>
+                        <input type="range" id="priceRange" min="0" max="5000" value="5000" style="width: 100%; cursor: pointer;" onchange="applyFilters()">
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px; color: #666; font-size: 0.875rem;">
+                            <span>₹0</span>
+                            <span id="priceValue">₹5000</span>
+                        </div>
+                    </div>
+
+                    <!-- Ratings -->
+                    <div>
+                        <h4 style="color: #2D1B4E; margin-bottom: 15px;">Rating</h4>
+                        <label style="display: block; margin-bottom: 10px; cursor: pointer;">
+                            <input type="checkbox" name="rating" value="5" onchange="applyFilters()"> ★★★★★ (5 Stars)
+                        </label>
+                        <label style="display: block; margin-bottom: 10px; cursor: pointer;">
+                            <input type="checkbox" name="rating" value="4" onchange="applyFilters()"> ★★★★ (4+ Stars)
+                        </label>
+                        <label style="display: block; cursor: pointer;">
+                            <input type="checkbox" name="rating" value="3" onchange="applyFilters()"> ★★★ (3+ Stars)
+                        </label>
+                    </div>
+                </aside>
+
+                <!-- Main Products -->
+                <main>
+                    <!-- Top Controls -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 20px;">
+                        <p id="resultsCount" style="color: #666;">Showing 8 products</p>
+                        <select id="sortSelect" onchange="applyFilters()" style="padding: 8px 15px; border: 1px solid #E8E8E8; border-radius: 4px; font-family: 'Lato', sans-serif; background: white; cursor: pointer;">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Top Rated</option>
+                            <option value="newest">Newest</option>
+                        </select>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Products loaded by JavaScript -->
+                    </div>
+
+                    <!-- No Results -->
+                    <div id="noResults" style="display: none; text-align: center; padding: 60px 20px;">
+                        <h3 style="color: #2D1B4E; margin-bottom: 10px;">No products found</h3>
+                        <p style="color: #666; margin-bottom: 20px;">Try adjusting your filters</p>
+                        <button class="btn btn-primary" onclick="clearFilters()">Clear Filters</button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>LUXE</h4>
+                    <p>Premium Glassware for Modern Living</p>
+                    <div class="social-links">
+                        <a href="#">f</a>
+                        <a href="#">📷</a>
+                        <a href="#">📌</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Collections</h4>
+                    <ul>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">Drinkware</a></li>
+                        <li><a href="#">Serveware</a></li>
+                        <li><a href="#">Storage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Policies</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Luxe Premium Glassware. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-btn" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total:</strong>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Checkout</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="cartOverlay"></div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script src="royal-script.js"></script>
+    <script>
+        // Shop-specific functionality
+        function applyFilters() {
+            let filteredProducts = JSON.parse(localStorage.getItem('allProducts')) || products;
+            
+            // Category filter
+            const selectedCategory = document.querySelector('input[name="category"]:checked').value;
+            if (selectedCategory !== 'all') {
+                filteredProducts = filteredProducts.filter(p => p.category === selectedCategory);
+            }
+
+            // Price filter
+            const priceRange = document.getElementById('priceRange');
+            const maxPrice = parseInt(priceRange.value);
+            document.getElementById('priceValue').textContent = '₹' + maxPrice;
+            filteredProducts = filteredProducts.filter(p => p.price <= maxPrice);
+
+            // Rating filter
+            const selectedRatings = Array.from(document.querySelectorAll('input[name="rating"]:checked'))
+                .map(cb => parseInt(cb.value));
+            if (selectedRatings.length > 0) {
+                filteredProducts = filteredProducts.filter(p => 
+                    selectedRatings.some(rating => p.rating >= rating)
+                );
+            }
+
+            // Sorting
+            const sortValue = document.getElementById('sortSelect').value;
+            switch(sortValue) {
+                case 'price-low':
+                    filteredProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    filteredProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case 'rating':
+                    filteredProducts.sort((a, b) => b.rating - a.rating);
+                    break;
+                case 'newest':
+                    filteredProducts.sort((a, b) => b.id - a.id);
+                    break;
+            }
+
+            renderProducts(filteredProducts);
+        }
+
+        function renderProducts(productsToShow) {
+            const productsGrid = document.getElementById('productsGrid');
+            const noResults = document.getElementById('noResults');
+
+            if (productsToShow.length === 0) {
+                productsGrid.innerHTML = '';
+                noResults.style.display = 'block';
+                document.getElementById('resultsCount').textContent = 'No products found';
+                return;
+            }
+
+            noResults.style.display = 'none';
+            productsGrid.innerHTML = productsToShow.map(product => createProductCard(product)).join('');
+            document.getElementById('resultsCount').textContent = `Showing ${productsToShow.length} products`;
+            setupProductCardListeners();
+        }
+
+        function clearFilters() {
+            document.querySelector('input[name="category"][value="all"]').checked = true;
+            document.getElementById('priceRange').value = 5000;
+            document.querySelectorAll('input[name="rating"]').forEach(cb => cb.checked = false);
+            document.getElementById('sortSelect').value = 'featured';
+            applyFilters();
+        }
+
+        function filterByCategory(category) {
+            document.querySelector(`input[name="category"][value="${category}"]`).checked = true;
+            applyFilters();
+        }
+
+        // Load all products
+        localStorage.setItem('allProducts', JSON.stringify(products));
+
+        // Initialize shop
+        document.addEventListener('DOMContentLoaded', function() {
+            applyFilters();
+            setupCartFunctionality();
+            updateCartCount();
+            updateWishlistCount();
+            setupBackToTop();
+        });
+    </script>
+</body>
+</html>
