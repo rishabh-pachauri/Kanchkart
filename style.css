@@ -43,6 +43,32 @@ body{
     padding:20px;
     animation:fadeUp 1.5s ease;
 }
+.logo{
+    width:120px;
+    height:auto;
+    display:block;
+    margin:0 auto 15px auto;
+
+    /* If your logo has white margins, crop them */
+    object-fit:contain;
+
+    /* Premium gold glow */
+    filter:drop-shadow(0 4px 12px rgba(201,162,74,0.3));
+
+    animation:logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-6px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
 
 /* Brand Name */
 h1{
