@@ -50,7 +50,12 @@ h1{
     font-size:5rem;
     font-weight:600;
     letter-spacing:10px;
-    color:#9b7b3b;
+
+    color:#C9A24A;
+
+    text-shadow:
+        0 1px 0 #e6c16b,
+        0 2px 8px rgba(201,162,74,0.15);
 }
 
 .divider{
@@ -101,50 +106,22 @@ p{
 
     transition:all .4s ease;
 }
-.logo-container{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    z-index:10;
-}
 
 .logo{
-    width:320px;
+    width:180px;
     height:auto;
     display:block;
-
-    filter:
-    drop-shadow(0 4px 12px rgba(184,134,11,0.15));
-
-    animation:float 6s ease-in-out infinite;
-}
-
-@keyframes float{
-    0%{
-        transform:translateY(0px);
-    }
-    50%{
-        transform:translateY(-8px);
-    }
-    100%{
-        transform:translateY(0px);
-    }
+    margin:0 auto 15px auto;
 }
 .logo{
-    width:320px;
-    height:auto;
-
-    filter:
-    brightness(0)
-    saturate(100%)
-    invert(68%)
-    sepia(48%)
-    saturate(720%)
-    hue-rotate(5deg)
-    brightness(95%)
-    contrast(90%);
+    width:180px;
+    margin-bottom:10px;
 }
+
+h1{
+    margin-bottom:25px;
+}
+
 
 .socials a:hover{
     transform:translateY(-8px);
