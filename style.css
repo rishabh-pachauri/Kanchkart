@@ -24,11 +24,10 @@ body{
 
     background:
     linear-gradient(
-        rgba(255,255,255,0.50),
-        rgba(255,255,255,0.50)
+        rgba(255,255,255,0.40),
+        rgba(255,255,255,0.40)
     );
 
-    backdrop-filter: blur(2px);
 }
 
 .container{
