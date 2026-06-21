@@ -42,16 +42,13 @@ body{
 
 /* Logo */
 .logo{
-    width:180px;
-    max-width:60vw;
+    width:140px;
     height:auto;
     display:block;
-    margin:0 auto 15px auto;
+    margin:0 auto 5px auto;
 
-    animation:logoFloat 5s ease-in-out infinite;
-
-    filter:
-        drop-shadow(0 4px 10px rgba(201,162,74,0.25));
+    /* Crop away white margins */
+    clip-path: inset(28% 20% 18% 20%);
 }
 
 @keyframes logoFloat{
