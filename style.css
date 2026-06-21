@@ -10,33 +10,28 @@ body{
     position:relative;
     font-family:'Inter',sans-serif;
 
-    background:
-    url('background.png');
-
+    background:url('background.png');
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
 }
 
+/* Light overlay */
 .overlay{
     position:absolute;
     inset:0;
-
-    background:
-    linear-gradient(
-        rgba(255,255,255,0.20),
-        rgba(255,255,255,0.20)
-    );
-
+    background:rgba(255,255,255,0.20);
+    z-index:1;
 }
 
+/* Main content container */
 .container{
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     position:relative;
-    z-index:2;
+    z-index:3;
 }
 
 .content{
@@ -45,6 +40,33 @@ body{
     animation:fadeUp 1.5s ease;
 }
 
+/* Logo */
+.logo{
+    width:180px;
+    max-width:60vw;
+    height:auto;
+    display:block;
+    margin:0 auto 15px auto;
+
+    animation:logoFloat 5s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 4px 10px rgba(201,162,74,0.25));
+}
+
+@keyframes logoFloat{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* Brand Name */
 h1{
     font-family:'Cormorant Garamond',serif;
     font-size:5rem;
@@ -53,11 +75,14 @@ h1{
 
     color:#C9A24A;
 
+    margin-bottom:20px;
+
     text-shadow:
         0 1px 0 #e6c16b,
-        0 2px 8px rgba(201,162,74,0.15);
+        0 4px 15px rgba(201,162,74,0.15);
 }
 
+/* Divider */
 .divider{
     width:120px;
     height:1px;
@@ -65,20 +90,23 @@ h1{
     margin:25px auto;
 }
 
+/* Launching Soon */
 h2{
     font-family:'Cormorant Garamond',serif;
     font-size:3rem;
-    color:#333;
     font-weight:500;
+    color:#2c2c2c;
 }
 
+/* Tagline */
 p{
     margin-top:20px;
-    color:#666;
+    color:#555;
     font-size:1.1rem;
     letter-spacing:1px;
 }
 
+/* Social Icons */
 .socials{
     margin-top:50px;
     display:flex;
@@ -96,7 +124,7 @@ p{
 
     border-radius:50%;
 
-    background:rgba(255,255,255,0.5);
+    background:rgba(255,255,255,0.55);
 
     color:#9b7b3b;
 
@@ -104,24 +132,8 @@ p{
 
     text-decoration:none;
 
-    transition:all .4s ease;
+    transition:all .35s ease;
 }
-
-.logo{
-    width:180px;
-    height:auto;
-    display:block;
-    margin:0 auto 15px auto;
-}
-.logo{
-    width:180px;
-    margin-bottom:10px;
-}
-
-h1{
-    margin-bottom:25px;
-}
-
 
 .socials a:hover{
     transform:translateY(-8px);
@@ -129,12 +141,13 @@ h1{
     color:white;
 }
 
+/* Background Glows */
 .floating-glow{
     position:absolute;
     border-radius:50%;
     filter:blur(100px);
     opacity:.25;
-    z-index:1;
+    z-index:2;
 }
 
 .glow1{
@@ -161,7 +174,7 @@ h1{
 
 @keyframes float1{
     from{
-        transform:translateY(0px);
+        transform:translateY(0);
     }
     to{
         transform:translateY(40px);
@@ -170,26 +183,31 @@ h1{
 
 @keyframes float2{
     from{
-        transform:translateY(0px);
+        transform:translateY(0);
     }
     to{
         transform:translateY(-40px);
     }
 }
 
+/* Fade Animation */
 @keyframes fadeUp{
     from{
         opacity:0;
         transform:translateY(30px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
+/* Mobile */
 @media(max-width:768px){
+
+    .logo{
+        width:120px;
+    }
 
     h1{
         font-size:3rem;
@@ -202,5 +220,9 @@ h1{
 
     p{
         font-size:1rem;
+    }
+
+    .socials{
+        gap:20px;
     }
 }
