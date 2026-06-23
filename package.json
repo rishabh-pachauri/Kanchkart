@@ -1,0 +1,52 @@
+{
+  "name": "kanchkart-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Premium full-stack e-commerce platform for KanchKart borosilicate glassware.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate deploy",
+    "prisma:dev": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "db:seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.10.1",
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.6.1",
+    "clsx": "^2.1.1",
+    "csv-parse": "^5.6.0",
+    "iconv-lite": "^0.6.3",
+    "jose": "^5.10.0",
+    "lucide-react": "^0.468.0",
+    "next": "^15.3.4",
+    "nodemailer": "^6.10.1",
+    "pdfkit": "^0.15.2",
+    "razorpay": "^2.9.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "twilio": "^5.7.0",
+    "zod": "^3.25.56"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.15.30",
+    "@types/nodemailer": "^6.4.17",
+    "@types/pdfkit": "^0.13.9",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.3.4",
+    "postcss": "^8.5.6",
+    "prisma": "^6.10.1",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}

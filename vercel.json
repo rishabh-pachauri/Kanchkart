@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npm run build",
+  "framework": "nextjs",
+  "regions": ["bom1"],
+  "crons": [
+    {
+      "path": "/api/admin/inventory-alerts",
+      "schedule": "0 3 * * *"
+    }
+  ]
+}
